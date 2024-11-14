@@ -2,7 +2,7 @@ import './index.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import AnimeList from './components/AnimeList';
 import AnimeDetails from './components/AnimeDetails';
-import CurrentAnimes from './components/CurrentAnime';
+
 
 const App = () =>{
   return(
