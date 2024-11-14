@@ -12,11 +12,7 @@ const App = () =>{
         <Route path='/anime/:id' element ={<AnimeDetails />}/>
       </Routes>
     </Router>
-    // <div className='bg-gray-100 min-h-screen p-4'>
-    //   <h1 className='text-3xl font-bold text-center mb-6'>Welcome to the Anime Website</h1>
-    //   <AnimeList />
-    //   {/* <CurrentAnimes /> */}
-    // </div>
+    
   )
 }
 
