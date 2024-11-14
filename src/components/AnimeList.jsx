@@ -14,7 +14,7 @@ const AnimeList = () => {
         setLoading(true);
         setError(null)
         try{
-            const response = await fetch(`https://api.jikan.moe/v4/anime`);
+            const response = await fetch(`https://api.jikan.moe/v4/anime?q=${query}`);
         
             
             if(!response.ok){
@@ -39,10 +39,7 @@ const AnimeList = () => {
     }
     const handleSearch = (e) =>{
         e.preventDefault();
-        const filtered = animeList.filter(anime =>
-            anime.title.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        setFilteredAnime(filtered);
+        fetchAnime(searchTerm)
     };
     const handleGenreFilter = (e) => {
         const genre = e.target.value;
@@ -59,7 +56,7 @@ const AnimeList = () => {
             <h1 className='text-2xl font-bold mb-4'> Anime List</h1>
             <div className="head-container">
                 <form onSubmit={handleSearch} className='mb-4'>
-                    <input type="text" placeholder='Search for an anime'value={searchTerm} onChange={(e) =>{setSearchTerm(e.target.value)}} className='border border-gray-300  rounded p-2 mr-2' />
+                    <input type="text" placeholder='Search for an anime'value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className='border border-gray-300  rounded p-2 mr-2' />
                     <button type="submit" className='bg-blue-500    text-white rounded p-2'>Search</button>
                  </form>
                  <select onChange={handleGenreFilter} className='border border-gray-300 rounded p-2 mr-2'>
